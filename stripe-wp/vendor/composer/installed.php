@@ -262,6 +262,15 @@
             'aliases' => array(),
             'dev_requirement' => true,
         ),
+        'stripe/stripe-php' => array(
+            'pretty_version' => 'v10.0.0',
+            'version' => '10.0.0.0',
+            'reference' => 'a895466e5208cc7974bc3bed80abe825418ce0b0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../stripe/stripe-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'theseer/tokenizer' => array(
             'pretty_version' => '1.2.1',
             'version' => '1.2.1.0',

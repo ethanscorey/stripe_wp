@@ -13,6 +13,10 @@ class ComposerStaticInit13c3a7c087a28ef49df7fedb069f33ab
     );
 
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Stripe\\' => 7,
+        ),
         'P' => 
         array (
             'PhpParser\\' => 10,
@@ -25,6 +29,10 @@ class ComposerStaticInit13c3a7c087a28ef49df7fedb069f33ab
     );
 
     public static $prefixDirsPsr4 = array (
+        'Stripe\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/stripe/stripe-php/lib',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',

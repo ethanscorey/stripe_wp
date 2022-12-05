@@ -5,5 +5,8 @@
     },
     "scripts": {
         "phpunit": "phpunit"
+    },
+    "require": {
+        "stripe/stripe-php": "^10.0"
     }
 }
