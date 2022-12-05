@@ -36,7 +36,7 @@ function stripe_wp_donate_page() {
                 'name' => 'Donate Pages',
                 'singular_name' => 'Donate Page',
              ),
-            'single_template' => plugin_dir_path( __FILE__ ) . 'templates/single-stripe-wp-donate-page.php',
+            'rewrite' => array('slug' => 'donate'),
             'public' => true,
             'has_archive' => false,
             'show_in_rest' => true,
