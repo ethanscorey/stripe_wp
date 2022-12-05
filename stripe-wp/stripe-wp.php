@@ -77,6 +77,16 @@ function stripe_wp_enqueue_scripts() {
 }
 
 add_action('wp_enqueue_scripts', 'stripe_wp_enqueue_scripts');
+
+
+function stripe_wp_admin_enqueue_scripts() {
+    $screen = get_current_screen();
+    if ($screen->base === 'post') {
+        wp_enqueue_script('donate-admin', STRIPE_WP_ASSET_URL.'js/donate-admin.js', array('jquery'), '', true);
+    }
+}
+
+add_action('admin_enqueue_scripts', 'stripe_wp_admin_enqueue_scripts');
         
 
 function stripe_wp_register_api_key() {

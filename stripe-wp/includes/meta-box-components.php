@@ -67,6 +67,7 @@ function stripe_wp_donate_options( $post ) {
     );
     stripe_wp_meta_amount_option_table(
         $post->ID,
+        $allow_interval_month,
         'stripe_wp_donate_month_options',
         $month_display_amount_options ? $month_display_amount_options:$default_display_amount_options,
         'Donation Amounts (Monthly)',
@@ -74,6 +75,7 @@ function stripe_wp_donate_options( $post ) {
     );
     stripe_wp_meta_amount_option_table(
         $post->ID,
+        $allow_interval_year,
         'stripe_wp_donate_year_options',
         $year_display_amount_options ? $year_display_amount_options:$default_display_amount_options,
         'Donation Amounts (Yearly)',
@@ -81,6 +83,7 @@ function stripe_wp_donate_options( $post ) {
     );
     stripe_wp_meta_amount_option_table(
         $post->ID,
+        $allow_interval_onetime,
         'stripe_wp_donate_one-time_options',
         $onetime_display_amount_options ? $onetime_display_amount_options:$default_display_amount_options,
         'Donation Amounts (One-Time)',
@@ -175,14 +178,15 @@ function stripe_wp_meta_option_select($name, $options, $label, $description) {
 }
 
 
-function stripe_wp_meta_amount_option_table($post_id, $name, $num_options, $label, $description) {
+function stripe_wp_meta_amount_option_table($post_id, $allowed, $name, $num_options, $label, $description) {
+    $display = $allowed ? '':'style="display: none;"';
     ?>
-    <div class="stripe-wp-donate-meta-field">
+    <div class="stripe-wp-donate-meta-field" <?php echo $display; ?>>
         <label><?php echo $label; ?></label>
         <p class="description"><?php echo $description; ?></p>
         <label for="<?php echo "{$name}_count" ?>">Number of options</label>
         <input type="number" name="<?php echo "{$name}_count"; ?>" id="<?php echo "{$name}_count"; ?>" value="<?php echo $num_options; ?>" step="1">
-        <table>
+        <table id="<?php echo $name; ?>">
             <thead>
                 <th><label>Amount</label></th>
                 <th>
@@ -200,7 +204,7 @@ function stripe_wp_meta_amount_option_table($post_id, $name, $num_options, $labe
                         $amount = $amount_options[$i]['amount'];
                         $checked = $amount_options[$i]['default'] ? 'checked':'';
                     }
-                    echo "<tr><td><input name='{$name}_$i' type=r'number' min='0.50' max='999999.99' value='$amount'></td><td><input name='{$name}_is_default' value='$i' type='radio' $checked></td></tr>";
+                    echo "<tr><td><input name='{$name}_$i' type='number' min='0.50' max='999999.99' step='0.5' value='$amount'></td><td><input name='{$name}_is_default' value='$i' type='radio' $checked></td></tr>";
                 }
             ?>
             </tbody>
