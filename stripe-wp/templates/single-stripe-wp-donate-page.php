@@ -30,7 +30,7 @@
                   </div>
                  </div>
               </div>
-              <div data-toggle="buttons">
+              <div>
                 <?php stripe_wp_donate_amount_options($post_id); ?>
               </div>
               <form action="/wp-json/stripe_wp/v1/create-checkout" method="POST">
