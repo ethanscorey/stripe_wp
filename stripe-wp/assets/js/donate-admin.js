@@ -25,9 +25,11 @@ jQuery( "#stripe_wp_allow_interval_month" ).change(
     function() {
         if (jQuery( this ).is(":checked")) {
             jQuery("table#stripe_wp_donate_month_options").parent().show();
+            jQuery('select#stripe_wp_default_interval option[value="month"]').show();
         }
         if (!jQuery( this ).is(":checked")) {
             jQuery("table#stripe_wp_donate_month_options").parent().hide();
+            jQuery('select#stripe_wp_default_interval option[value="month"]').prop('selected', false).hide();
         }
     }
 );
@@ -60,9 +62,11 @@ jQuery( "#stripe_wp_allow_interval_year" ).change(
     function() {
         if (jQuery( this ).is(":checked")) {
             jQuery("table#stripe_wp_donate_year_options").parent().show();
+            jQuery('select#stripe_wp_default_interval option[value="year"]').show();
         }
         if (!jQuery( this ).is(":checked")) {
             jQuery("table#stripe_wp_donate_year_options").parent().hide();
+            jQuery('select#stripe_wp_default_interval option[value="year"]').prop('selected', false).hide();
         }
     }
 );
@@ -95,9 +99,11 @@ jQuery( "#stripe_wp_allow_interval_one-time" ).change(
     function() {
         if (jQuery( this ).is(":checked")) {
             jQuery("table#stripe_wp_donate_one-time_options").parent().show();
+            jQuery('select#stripe_wp_default_interval option[value="one-time"]').show();
         }
         if (!jQuery( this ).is(":checked")) {
             jQuery("table#stripe_wp_donate_one-time_options").parent().hide();
+            jQuery('select#stripe_wp_default_interval option[value="one-time"]').prop('selected', false).hide();
         }
     }
 );
