@@ -92,7 +92,7 @@ function stripe_wp_create_checkout_session( WP_REST_Request $request ) {
               'quantity' => 1,
           ]],
           'mode' => $mode,
-          'success_url' => get_site_url() . "/thank-you?$thank_you_url_args",
+          'success_url' => get_site_url() . "/stripe-wp-donate-thank-you?$thank_you_url_args",
           'cancel_url' => $request->get_header('Referer'),
         ]);
         $response = new WP_REST_Response();
@@ -102,11 +102,34 @@ function stripe_wp_create_checkout_session( WP_REST_Request $request ) {
     } catch (Exception $e) {
         $error_response = new WP_REST_Response();
         $error_response->set_status(303);
-        $error_response->header( 'Location', '/checkout-error/' );
+        $error_response->header( 'Location', '/stripe-wp-checkout-error/' );
         return $error_response;
     }
 }
 
+
+function stripe_wp_create_portal_session_from_email( WP_REST_REQUEST $request ) {
+    try {
+        $STRIPE_API_KEY = get_option('stripe_api_key');
+        \Stripe\Stripe::setApiKey(
+            $STRIPE_API_KEY
+        );
+        $customer_id = \Stripe\Customer::all(['email' => $request['stripe-customer-email']])->data[0]->id;
+        $subscription_portal = \Stripe\BillingPortal\Session::create([
+          'customer' => $customer_id,
+          'return_url' => get_site_url() . '/manage-your-recurring-donation/',
+        ]);
+        $response = new WP_REST_Response();
+        $response->set_status(303);
+        $response->header( 'Location', $subscription_portal->url );
+        return $response;
+    } catch (Exception $e) {
+        $error_response = new WP_REST_Response();
+        $error_response->set_status(303);
+        $error_response->header( 'Location', '/manage-your-recurring-donation/' );
+        return $error_response;
+    }
+}
 
 function stripe_wp_create_portal_session( WP_REST_REQUEST $request ) {
     try {
@@ -141,6 +164,11 @@ add_action('rest_api_init', function() {
         register_rest_route( 'stripe_wp/v1', '/create-portal', array(
             'methods' => 'POST',
             'callback' => 'stripe_wp_create_portal_session',
+            'permission_callback' => '__return_true',
+        ) );
+        register_rest_route( 'stripe_wp/v1', '/create-portal-email', array(
+            'methods' => 'POST',
+            'callback' => 'stripe_wp_create_portal_session_from_email',
             'permission_callback' => '__return_true',
         ) );
     }

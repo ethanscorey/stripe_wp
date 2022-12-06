@@ -24,6 +24,10 @@ function stripe_wp_template_include( $template ) {
         $template = $plugin_path . 'single-stripe-wp-donate-page.php';
     } else if ($post_name === 'stripe-wp-donate-thank-you') {
         $template = $plugin_path . 'stripe-wp-thank-you.php';
+    } else if ($post_name === 'stripe-wp-error') {
+        $template = $plugin_path . 'stripe-wp-error.php';
+    } else if ($post_name === 'manage-your-recurring-donation') {
+        $template = $plugin_path . 'stripe-wp-manage-recurring-donation.php';
     }
     return $template;
 }
@@ -52,6 +56,21 @@ function stripe_wp_donate_page() {
 add_action('init', 'stripe_wp_donate_page');
 
 
+function stripe_wp_error_page() {
+    $plugin_path = plugin_dir_path( __FILE__ ) . 'templates/';
+    $error_page = array(
+        'post_title' => wp_strip_all_tags('Checkout Error'),
+        'post_name' => wp_strip_all_tags('stripe-wp-error'),
+        'post_status' => 'publish',
+        'post_author' => 1,
+        'post_type' => 'page',
+    );
+    wp_insert_post( $error_page );
+}
+
+register_activation_hook(__FILE__, 'stripe_wp_error_page');
+
+
 function stripe_wp_thank_you_page() {
     $plugin_path = plugin_dir_path( __FILE__ ) . 'templates/';
     $thank_you_post = array(
@@ -65,6 +84,43 @@ function stripe_wp_thank_you_page() {
 }
 
 register_activation_hook(__FILE__, 'stripe_wp_thank_you_page');
+
+
+function stripe_wp_manage_donation_page() {
+    $plugin_path = plugin_dir_path( __FILE__ ) . 'templates/';
+    $manage_donation_page = array(
+        'post_title' => wp_strip_all_tags('Manage Your Recurring Donation'),
+        'post_name' => wp_strip_all_tags('manage-your-recurring-donation'),
+        'post_status' => 'publish',
+        'post_author' => 1,
+        'post_type' => 'page',
+    );
+    wp_insert_post( $manage_donation_page );
+}
+
+register_activation_hook(__FILE__, 'stripe_wp_manage_donation_page');
+
+
+function stripe_wp_exclude_pages_from_page_list($pages) {
+    if (!is_admin()) {
+        $new_pages = array();
+        foreach($pages as $page) {
+            if (!in_array(
+                $page->post_name,
+                array(
+                    'stripe-wp-error', 
+                    'stripe-wp-donate-thank-you', 
+                    'manage-your-recurring-donation',
+                )) 
+            ) {
+                $new_pages[] = $page;
+            }
+        }
+    }
+    return $new_pages;
+}
+
+add_filter('get_pages', 'stripe_wp_exclude_pages_from_page_list');
 
 
 function stripe_wp_add_meta_boxes( $post ) {
@@ -89,7 +145,9 @@ function stripe_wp_add_meta_boxes( $post ) {
 function stripe_wp_enqueue_scripts() {
     if (
         (get_post_type() == 'stripe_wp_donate') 
-        || (str_contains(get_the_title(), "Thank You"))
+        || (str_contains(get_the_title(), 'Thank You'))
+        || (str_contains(get_the_title(), 'Manage Your Recurring Donation'))
+        || (str_contains(get_the_title(), 'Checkout Error'))
     ) {
         wp_enqueue_style('stripe_wp_normalize', STRIPE_WP_ASSET_URL.'css/normalize.css');
         wp_enqueue_style('stripe_wp_donate', STRIPE_WP_ASSET_URL.'css/donate.css');
