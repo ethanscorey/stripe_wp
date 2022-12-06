@@ -14,6 +14,9 @@
 </head>
   <body <?php body_class(); ?>>
     <header class='stripe-wp-donate-page-header'>
+        <a class="stripe-wp-navbar-brand" href="/">
+            <img src="<?php echo get_post_meta(get_the_ID(), 'stripe_wp_site_logo', true); ?>">
+        </a>
     </header>
     <main role="main">
       <section>

@@ -1,4 +1,14 @@
 <?php
+function stripe_wp_site_logo( $post ) {
+    stripe_wp_meta_file_upload(
+        $post->ID,
+        'stripe_wp_site_logo',
+        'Site Logo',
+        'Select the logo to display on the donation page.'
+    );
+}
+
+
 function stripe_wp_donate_call_to_action( $post ) {
     $text= get_post_meta($post->ID, 'stripe_wp_donate_call_to_action' , true );
     $meta_box_id = 'stripe_wp_donate_call_to_action';
@@ -210,5 +220,17 @@ function stripe_wp_meta_amount_option_table($post_id, $allowed, $name, $num_opti
             </tbody>
         </table>
     </div>
+    <?php
+}
+
+
+function stripe_wp_meta_file_upload($post_id, $field_name, $label, $description) {
+    $file_link = get_post_meta($post_id, $field_name, true);
+    ?>
+    <label for="<?php echo $field_name; ?>"><?php echo $label; ?></label>
+    <p class="description"><?php echo $description; ?></p>
+    <input id="<?php echo $field_name; ?>_input" name="<?php echo $field_name; ?>" type="hidden" value="<?php echo $file_link; ?>">
+    <img height="100" id="<?php echo $field_name; ?>_preview" src="<?php echo $file_link; ?>">
+    <input id="<?php echo $field_name; ?>_upload_button" type="button" value="Upload">
     <?php
 }

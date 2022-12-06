@@ -125,6 +125,11 @@ add_filter('get_pages', 'stripe_wp_exclude_pages_from_page_list');
 
 function stripe_wp_add_meta_boxes( $post ) {
     add_meta_box(
+        'stripe_wp_site_logo',
+        'Site Logo',
+        'stripe_wp_site_logo'
+    );
+    add_meta_box(
         'stripe_wp_donate_call_to_action',
         'Donate Call to Action',
         'stripe_wp_donate_call_to_action'
@@ -161,6 +166,9 @@ add_action('wp_enqueue_scripts', 'stripe_wp_enqueue_scripts');
 function stripe_wp_admin_enqueue_scripts() {
     $screen = get_current_screen();
     if ($screen->base === 'post') {
+        wp_enqueue_script('media-upload');
+        wp_enqueue_script('thickbox');
+        wp_enqueue_media();
         wp_enqueue_script('donate-admin', STRIPE_WP_ASSET_URL.'js/donate-admin.js', array('jquery'), '', true);
     }
 }

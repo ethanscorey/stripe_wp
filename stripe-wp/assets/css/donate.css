@@ -33,4 +33,8 @@
   display: block;
 }
 
+.stripe-wp-navbar-brand img {
+  max-width: 120px;
+}
+
 /*# sourceMappingURL=donate.css.map */

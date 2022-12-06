@@ -107,3 +107,37 @@ jQuery( "#stripe_wp_allow_interval_one-time" ).change(
         }
     }
 );
+
+
+jQuery( "#stripe_wp_site_logo_upload_button" ).click(
+    function() {
+        var frame;
+        event.preventDefault();
+
+        // If the media frame already exists, reopen it.
+        if ( frame ) {
+          frame.open();
+          return;
+        }
+
+        // Create a new media frame
+        frame = wp.media({
+          title: 'Select or Upload Image',
+          button: {
+            text: 'Use this Image'
+          },
+          multiple: false  // Set to true to allow multiple files to be selected
+        });
+        frame.render();
+
+
+        // When an image is selected in the media frame...
+        frame.on('select', function () {
+            var attachment = frame.state().get('selection').first().toJSON();
+            console.log(attachment.url);
+            jQuery('#stripe_wp_site_logo_input').val(attachment.url);
+            jQuery('#stripe_wp_site_logo_preview').attr('src', attachment.url);
+
+        });
+        frame.open();
+    });

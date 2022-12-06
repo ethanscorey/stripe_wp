@@ -29,7 +29,6 @@ services:
       WORDPRESS_DB_PASSWORD: examplepass
       WORDPRESS_DB_NAME: wp_local
       PHP_MEMORY_LIMIT: 512M
-      APL_STRIPE_API_KEY: $APL_STRIPE_API_KEY
     volumes:
       - wordpress:/var/www/html
       - ./stripe-wp:/var/www/html/wp-content/plugins/stripe-wp

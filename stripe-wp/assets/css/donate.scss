@@ -39,3 +39,9 @@
 .stripe-wp-donate-amount-button {
     display: block;
 }
+
+.stripe-wp-navbar-brand {
+    img {
+        max-width: 120px;
+    }
+}
