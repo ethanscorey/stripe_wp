@@ -18,9 +18,12 @@ include plugin_dir_path( __FILE__ ) . 'includes/stripe-api-integration.php';
 function stripe_wp_template_include( $template ) {
     global $post;
     $post_type = get_post_type($post);
+    $post_name = $post->post_name;
     $plugin_path = plugin_dir_path( __FILE__ ) . 'templates/';
     if ($post_type == 'stripe_wp_donate') {
         $template = $plugin_path . 'single-stripe-wp-donate-page.php';
+    } else if ($post_name === 'stripe-wp-donate-thank-you') {
+        $template = $plugin_path . 'stripe-wp-thank-you.php';
     }
     return $template;
 }
@@ -49,6 +52,21 @@ function stripe_wp_donate_page() {
 add_action('init', 'stripe_wp_donate_page');
 
 
+function stripe_wp_thank_you_page() {
+    $plugin_path = plugin_dir_path( __FILE__ ) . 'templates/';
+    $thank_you_post = array(
+        'post_title' => wp_strip_all_tags('Thank You'),
+        'post_name' => wp_strip_all_tags('stripe-wp-donate-thank-you'),
+        'post_status' => 'publish',
+        'post_author' => 1,
+        'post_type' => 'page',
+    );
+    wp_insert_post( $thank_you_post );
+}
+
+register_activation_hook(__FILE__, 'stripe_wp_thank_you_page');
+
+
 function stripe_wp_add_meta_boxes( $post ) {
     add_meta_box(
         'stripe_wp_donate_call_to_action',
@@ -69,7 +87,10 @@ function stripe_wp_add_meta_boxes( $post ) {
 
 
 function stripe_wp_enqueue_scripts() {
-    if (get_post_type() == 'stripe_wp_donate') {
+    if (
+        (get_post_type() == 'stripe_wp_donate') 
+        || (str_contains(get_the_title(), "Thank You"))
+    ) {
         wp_enqueue_style('stripe_wp_normalize', STRIPE_WP_ASSET_URL.'css/normalize.css');
         wp_enqueue_style('stripe_wp_donate', STRIPE_WP_ASSET_URL.'css/donate.css');
         wp_enqueue_script('donate', STRIPE_WP_ASSET_URL.'js/donate.js', array('jquery'), '', true);
