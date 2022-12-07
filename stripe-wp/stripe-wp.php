@@ -35,6 +35,24 @@ function stripe_wp_template_include( $template ) {
 add_action( 'template_include', 'stripe_wp_template_include');
 
 
+add_action( 'pre_get_posts', 'stripe_wp_include_post_type_in_query' );
+function stripe_wp_include_post_type_in_query( $query ) {
+
+     // Only noop the main query
+     if ( ! $query->is_main_query() )
+         return;
+
+     // Only noop our very specific rewrite rule match
+     if ( 2 != count( $query->query )
+     || ! isset( $query->query['page'] ) )
+          return;
+
+      // Include my post type in the query
+     if ( ! empty( $query->query['name'] ) )
+          $query->set( 'post_type', array( 'post', 'page', 'stripe_wp_donate' ) );
+ }
+
+
 function stripe_wp_donate_page() {
     register_post_type(
         'stripe_wp_donate',
@@ -43,7 +61,7 @@ function stripe_wp_donate_page() {
                 'name' => 'Donate Pages',
                 'singular_name' => 'Donate Page',
              ),
-            'rewrite' => array('slug' => 'donate'),
+            'rewrite' => array('slug' => '/'),
             'public' => true,
             'has_archive' => false,
             'show_in_rest' => true,

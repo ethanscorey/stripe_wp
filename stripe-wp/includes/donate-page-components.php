@@ -3,16 +3,18 @@ function stripe_wp_donate_frequency_options($post_id) {
     $donate_intervals = get_post_meta($post_id, 'stripe_wp_donate_intervals', true);
     $interval_names = array('month', 'year', 'one-time');
     $default_interval = get_post_meta($post_id, 'stripe_wp_default_interval', true);
-    foreach( $interval_names as $interval ) {
-        if ( $donate_intervals[$interval] ) {
-            $checked = ($interval == $default_interval) ? 'checked':'';
-            $active = ($interval == $default_interval) ? 'active':'';
-            ?>
-              <label class="stripe-wp-btn stripe-wp-btn-control stripe-wp-donate-frequency-button <?php echo $active; ?>">
-              <?php echo ucwords($interval); ?>
-              <input id="<?php echo $interval; ?>" name="interval" class="stripe-wp-donate-frequency-option" type="radio" <?php echo $checked; ?>>
-            </label>
-            <?php
+    if (is_array($donate_intervals)) {
+        foreach( $interval_names as $interval ) {
+            if ( $donate_intervals[$interval] ) {
+                $checked = ($interval == $default_interval) ? 'checked':'';
+                $active = ($interval == $default_interval) ? 'active':'';
+                ?>
+                  <label class="stripe-wp-btn stripe-wp-btn-control stripe-wp-donate-frequency-button <?php echo $active; ?>">
+                  <?php echo ucwords($interval); ?>
+                  <input id="<?php echo $interval; ?>" name="interval" class="stripe-wp-donate-frequency-option" type="radio" <?php echo $checked; ?>>
+                </label>
+                <?php
+            }
         }
     }
 }
@@ -25,28 +27,30 @@ function stripe_wp_donate_amount_options($post_id) {
     $year_options = get_post_meta($post_id, 'stripe_wp_donate_year_options', true);
     $custom_amounts = get_post_meta($post_id, 'stripe_wp_allow_custom_amounts', true);
     $onetime_options = get_post_meta($post_id, 'stripe_wp_donate_one-time_options', true);
-    if ($donate_intervals['month']) {
-        foreach($month_options as $option) {
-            stripe_wp_donate_amount_option($option['amount'], $option['price_id'], 'month', $option['default'], $default_interval == 'month');
+    if (is_array($donate_intervals)) {
+        if ($donate_intervals['month']) {
+            foreach($month_options as $option) {
+                stripe_wp_donate_amount_option($option['amount'], $option['price_id'], 'month', $option['default'], $default_interval == 'month');
+            }
+            if ( $custom_amounts ) {
+                stripe_wp_custom_donate_amount_option('month', $default_interval == 'month');
+            }
         }
-        if ( $custom_amounts ) {
-            stripe_wp_custom_donate_amount_option('month', $default_interval == 'month');
+        if ($donate_intervals['year']) {
+            foreach($year_options as $option) {
+                stripe_wp_donate_amount_option($option['amount'], $option['price_id'], 'year', $option['default'], $default_interval == 'year');
+            }
+            if ( $custom_amounts ) {
+                stripe_wp_custom_donate_amount_option('year', $default_interval == 'year');
+            }
         }
-    }
-    if ($donate_intervals['year']) {
-        foreach($year_options as $option) {
-            stripe_wp_donate_amount_option($option['amount'], $option['price_id'], 'year', $option['default'], $default_interval == 'year');
-        }
-        if ( $custom_amounts ) {
-            stripe_wp_custom_donate_amount_option('year', $default_interval == 'year');
-        }
-    }
-    if ($donate_intervals['one-time']) {
-        foreach($onetime_options as $option) {
-            stripe_wp_donate_amount_option($option['amount'], $option['price_id'], 'one-time', $option['default'], $default_interval == 'one-time');
-        }
-        if ( $custom_amounts ) {
-            stripe_wp_custom_donate_amount_option('one-time', $default_interval == 'one-time');
+        if ($donate_intervals['one-time']) {
+            foreach($onetime_options as $option) {
+                stripe_wp_donate_amount_option($option['amount'], $option['price_id'], 'one-time', $option['default'], $default_interval == 'one-time');
+            }
+            if ( $custom_amounts ) {
+                stripe_wp_custom_donate_amount_option('one-time', $default_interval == 'one-time');
+            }
         }
     }
 }
