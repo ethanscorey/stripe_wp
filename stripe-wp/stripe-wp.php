@@ -175,6 +175,7 @@ function stripe_wp_enqueue_scripts() {
         wp_enqueue_style('stripe_wp_normalize', STRIPE_WP_ASSET_URL.'css/normalize.css');
         wp_enqueue_style('stripe_wp_donate', STRIPE_WP_ASSET_URL.'css/donate.css');
         wp_enqueue_script('donate', STRIPE_WP_ASSET_URL.'js/donate.js', array('jquery'), '', true);
+        wp_enqueue_style('fontawesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
     }
 }
 

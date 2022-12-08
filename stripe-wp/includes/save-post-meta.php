@@ -88,6 +88,9 @@ function stripe_wp_donate_save_meta( $post_id ) {
         stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_transaction_security', 'sanitize_text_field');
         stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_additional_info', 'wp_kses_post');
         stripe_wp_update_post_meta($post_id, 'stripe_wp_site_logo');
+        if (!empty($_POST["stripe_wp_make_header_default"])) {
+            set_option("stripe_wp_default_logo", get_post_meta($post_id, 'stripe_wp_site_logo', true));
+        }
     }
 }
 

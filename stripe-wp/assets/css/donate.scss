@@ -1,3 +1,29 @@
+@import 'screen-sizes.scss';
+@import 'element-layouts.scss';
+
+
+
+.stripe-wp-donate-page-main {
+    margin: 2rem 3rem 2rem 3rem;
+    font-size: 1.17rem;
+
+    form {
+        padding: .375rem;
+    }
+    h1 {
+        font-size: 4rem;
+    }
+
+    h4 {
+        margin: 0 0 2rem 0;
+    }
+}
+
+
+.stripe-wp-donate-page-header {
+    margin: 1rem 3rem 1rem 3rem;
+}
+
 .stripe-wp-d-none {
     display: none !important;
 }
@@ -29,6 +55,9 @@
             color: #ffffff;
         }
     }
+    &.stripe-wp-btn-submit {
+        background-color: #ff0e44;
+    }
 }
 
 
@@ -38,10 +67,37 @@
 
 .stripe-wp-donate-amount-button {
     display: block;
+    width: 100%;
+}
+
+.stripe-wp-donate-amount-text{
+    display: block;
+    width: 100%;
 }
 
 .stripe-wp-navbar-brand {
     img {
         max-width: 120px;
     }
+}
+
+.stripe-wp-donate-page-title {
+    margin: 2rem 0 2rem 0;
+}
+
+.stripe-wp-error-text {
+    color: #ff2200;
+}
+
+#stripe-wp-donate-call-to-action {
+    padding-left: 30px;
+}
+
+#stripe-wp-donate-disclosure-text, #stripe-wp-donate-transaction-security {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+#stripe-wp-donate-additional-info {
+    margin: 2rem 0 0 0;
 }

@@ -1,0 +1,76 @@
+@use "sass:math";
+
+$breakpoints: "xs", "sm", "md", "lg", "xl";
+$xs: 0px;
+$sm: 568px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+@function calc_breakpoint($breakpoint) {
+    @if $breakpoint == "xs" {
+        @return $xs;
+    } @else if $breakpoint == "sm" {
+        @return $sm;
+    } @else if $breakpoint == "md" {
+        @return $md;
+    } @else if $breakpoint == "lg" {
+        @return $lg;
+    } @else if $breakpoint == "xl" {
+        @return $xl;
+    }
+}
+
+@mixin col($breakpoint, $col-width) {
+    $proportion: math.percentage(math.div($col-width, 12));
+    .stripe-wp-col-#{$breakpoint}-#{$col-width} {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        @media (min-width: calc_breakpoint($breakpoint)) {
+            max-width: $proportion;
+            flex: 0 0 $proportion;
+        }
+    }
+}
+
+
+@each $breakpoint in $breakpoints {
+    @for $i from 1 through 12 {
+        @include col($breakpoint, $i);
+    }
+}
+
+
+*,  ::after, ::before {
+    box-sizing: border-box;
+}
+
+.stripe-wp-container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+
+    @include desktop {
+        max-width: 960px;
+    }
+
+    @include laptop {
+        max-width: 90%;
+    }
+
+    @include tablet {
+        max-width: 90%;
+    }
+}
+
+.stripe-wp-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px 0 -15px;
+}

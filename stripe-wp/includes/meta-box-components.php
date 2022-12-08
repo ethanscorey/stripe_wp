@@ -232,5 +232,6 @@ function stripe_wp_meta_file_upload($post_id, $field_name, $label, $description)
     <input id="<?php echo $field_name; ?>_input" name="<?php echo $field_name; ?>" type="hidden" value="<?php echo $file_link; ?>">
     <img height="100" id="<?php echo $field_name; ?>_preview" src="<?php echo $file_link; ?>">
     <input id="<?php echo $field_name; ?>_upload_button" type="button" value="Upload">
+    <input id="make_header_default" name="make_header_default" type="checkbox">
     <?php
 }

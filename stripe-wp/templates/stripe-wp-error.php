@@ -15,12 +15,17 @@ $support_email = get_post_meta(get_the_ID(), 'stripe_wp_support_email', true);
 </head>
   <body <?php body_class(); ?>>
     <header class='stripe-wp-donate-page-header'>
+        <?php 
+        $header_image = get_post_meta($_GET['donate-page-id'], 'stripe_wp_site_logo', true);
+        if (empty($header_image)) {
+            $header_image = get_option('stripe_wp_default_logo');
+        } ?>
         <a class="stripe-wp-navbar-brand" href="/">
-            <img src="<?php echo get_post_meta(get_the_ID(), 'stripe_wp_site_logo', true); ?>">
+            <img src="<?php echo $header_image; ?>">
         </a>
     </header>
-    <main role="main">
-      <section>
+    <main class="stripe-wp-donate-page-main" role="main">
+      <section class="stripe-donate-page-container">
         <article>
           <h1>Checkout Error</h1>
           <p>We’re sorry, there has been an error processing your donation. Please email <a href="mailto:<?php echo $support_email; ?>"><?php echo $support_email; ?></a> for assistance.</p>

@@ -86,6 +86,7 @@ function stripe_wp_create_checkout_session( WP_REST_Request $request ) {
         }
         $mode = $is_recurring ? 'subscription':'payment';
         $thank_you_url_args = $is_recurring ? 'session_id={CHECKOUT_SESSION_ID}':'one-time=true';
+        $thank_you_url_args .= '&donate-page-id='.$request['page_id'];
         $checkout_session = \Stripe\Checkout\Session::create([
           'line_items' => [[
               'price' => $price_id,
@@ -102,7 +103,7 @@ function stripe_wp_create_checkout_session( WP_REST_Request $request ) {
     } catch (Exception $e) {
         $error_response = new WP_REST_Response();
         $error_response->set_status(303);
-        $error_response->header( 'Location', '/stripe-wp-checkout-error/' );
+        $error_response->header( 'Location', '/stripe-wp-checkout-error/?donate-page-id='.$request['page_id'] );
         return $error_response;
     }
 }
@@ -114,7 +115,12 @@ function stripe_wp_create_portal_session_from_email( WP_REST_REQUEST $request ) 
         \Stripe\Stripe::setApiKey(
             $STRIPE_API_KEY
         );
-        $customer_id = \Stripe\Customer::all(['email' => $request['stripe-customer-email']])->data[0]->id;
+        $customer = \Stripe\Customer::all(['email' => $request['stripe-customer-email']]);
+        if (count($customer->data) > 0) {
+            $customer_id = $customer->data[0]->id;
+        } else {
+            throw new Exception('No account found for '.$request['stripe-customer-email']);
+        }
         $subscription_portal = \Stripe\BillingPortal\Session::create([
           'customer' => $customer_id,
           'return_url' => get_site_url() . '/manage-your-recurring-donation/',
@@ -126,7 +132,7 @@ function stripe_wp_create_portal_session_from_email( WP_REST_REQUEST $request ) 
     } catch (Exception $e) {
         $error_response = new WP_REST_Response();
         $error_response->set_status(303);
-        $error_response->header( 'Location', '/manage-your-recurring-donation/' );
+        $error_response->header( 'Location', '/manage-your-recurring-donation/?missing-email=true&email='.$request['stripe-customer-email'] );
         return $error_response;
     }
 }

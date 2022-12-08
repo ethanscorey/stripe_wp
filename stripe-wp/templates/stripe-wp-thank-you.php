@@ -14,12 +14,17 @@
 </head>
   <body <?php body_class(); ?>>
     <header class='stripe-wp-donate-page-header'>
+        <?php 
+        $header_image = get_post_meta($_GET['donate-page-id'], 'stripe_wp_site_logo', true);
+        if (empty($header_image)) {
+            $header_image = get_option('stripe_wp_default_logo');
+        } ?>
         <a class="stripe-wp-navbar-brand" href="/">
-            <img src="<?php echo get_post_meta(get_the_ID(), 'stripe_wp_site_logo', true); ?>">
+            <img src="<?php echo $header_image; ?>">
         </a>
     </header>
-    <main role="main">
-      <section>
+    <main class="stripe-wp-donate-page-main" role="main">
+      <section class="stripe-donate-page-container">
         <article>
           <h1>Thank You for Your Support!</h1>
           <p>Your donation to <?php echo get_bloginfo('name'); ?> was successful.</p>

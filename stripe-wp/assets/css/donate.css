@@ -1,3 +1,895 @@
+.stripe-wp-col-xs-1 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-1 {
+    max-width: 8.3333333333%;
+    flex: 0 0 8.3333333333%;
+  }
+}
+
+.stripe-wp-col-xs-2 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-2 {
+    max-width: 16.6666666667%;
+    flex: 0 0 16.6666666667%;
+  }
+}
+
+.stripe-wp-col-xs-3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+
+.stripe-wp-col-xs-4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-4 {
+    max-width: 33.3333333333%;
+    flex: 0 0 33.3333333333%;
+  }
+}
+
+.stripe-wp-col-xs-5 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-5 {
+    max-width: 41.6666666667%;
+    flex: 0 0 41.6666666667%;
+  }
+}
+
+.stripe-wp-col-xs-6 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+.stripe-wp-col-xs-7 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-7 {
+    max-width: 58.3333333333%;
+    flex: 0 0 58.3333333333%;
+  }
+}
+
+.stripe-wp-col-xs-8 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-8 {
+    max-width: 66.6666666667%;
+    flex: 0 0 66.6666666667%;
+  }
+}
+
+.stripe-wp-col-xs-9 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-9 {
+    max-width: 75%;
+    flex: 0 0 75%;
+  }
+}
+
+.stripe-wp-col-xs-10 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-10 {
+    max-width: 83.3333333333%;
+    flex: 0 0 83.3333333333%;
+  }
+}
+
+.stripe-wp-col-xs-11 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-11 {
+    max-width: 91.6666666667%;
+    flex: 0 0 91.6666666667%;
+  }
+}
+
+.stripe-wp-col-xs-12 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 0px) {
+  .stripe-wp-col-xs-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+.stripe-wp-col-sm-1 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-1 {
+    max-width: 8.3333333333%;
+    flex: 0 0 8.3333333333%;
+  }
+}
+
+.stripe-wp-col-sm-2 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-2 {
+    max-width: 16.6666666667%;
+    flex: 0 0 16.6666666667%;
+  }
+}
+
+.stripe-wp-col-sm-3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+
+.stripe-wp-col-sm-4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-4 {
+    max-width: 33.3333333333%;
+    flex: 0 0 33.3333333333%;
+  }
+}
+
+.stripe-wp-col-sm-5 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-5 {
+    max-width: 41.6666666667%;
+    flex: 0 0 41.6666666667%;
+  }
+}
+
+.stripe-wp-col-sm-6 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+.stripe-wp-col-sm-7 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-7 {
+    max-width: 58.3333333333%;
+    flex: 0 0 58.3333333333%;
+  }
+}
+
+.stripe-wp-col-sm-8 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-8 {
+    max-width: 66.6666666667%;
+    flex: 0 0 66.6666666667%;
+  }
+}
+
+.stripe-wp-col-sm-9 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-9 {
+    max-width: 75%;
+    flex: 0 0 75%;
+  }
+}
+
+.stripe-wp-col-sm-10 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-10 {
+    max-width: 83.3333333333%;
+    flex: 0 0 83.3333333333%;
+  }
+}
+
+.stripe-wp-col-sm-11 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-11 {
+    max-width: 91.6666666667%;
+    flex: 0 0 91.6666666667%;
+  }
+}
+
+.stripe-wp-col-sm-12 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 568px) {
+  .stripe-wp-col-sm-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+.stripe-wp-col-md-1 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-1 {
+    max-width: 8.3333333333%;
+    flex: 0 0 8.3333333333%;
+  }
+}
+
+.stripe-wp-col-md-2 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-2 {
+    max-width: 16.6666666667%;
+    flex: 0 0 16.6666666667%;
+  }
+}
+
+.stripe-wp-col-md-3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+
+.stripe-wp-col-md-4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-4 {
+    max-width: 33.3333333333%;
+    flex: 0 0 33.3333333333%;
+  }
+}
+
+.stripe-wp-col-md-5 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-5 {
+    max-width: 41.6666666667%;
+    flex: 0 0 41.6666666667%;
+  }
+}
+
+.stripe-wp-col-md-6 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+.stripe-wp-col-md-7 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-7 {
+    max-width: 58.3333333333%;
+    flex: 0 0 58.3333333333%;
+  }
+}
+
+.stripe-wp-col-md-8 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-8 {
+    max-width: 66.6666666667%;
+    flex: 0 0 66.6666666667%;
+  }
+}
+
+.stripe-wp-col-md-9 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-9 {
+    max-width: 75%;
+    flex: 0 0 75%;
+  }
+}
+
+.stripe-wp-col-md-10 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-10 {
+    max-width: 83.3333333333%;
+    flex: 0 0 83.3333333333%;
+  }
+}
+
+.stripe-wp-col-md-11 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-11 {
+    max-width: 91.6666666667%;
+    flex: 0 0 91.6666666667%;
+  }
+}
+
+.stripe-wp-col-md-12 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 768px) {
+  .stripe-wp-col-md-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+.stripe-wp-col-lg-1 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-1 {
+    max-width: 8.3333333333%;
+    flex: 0 0 8.3333333333%;
+  }
+}
+
+.stripe-wp-col-lg-2 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-2 {
+    max-width: 16.6666666667%;
+    flex: 0 0 16.6666666667%;
+  }
+}
+
+.stripe-wp-col-lg-3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+
+.stripe-wp-col-lg-4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-4 {
+    max-width: 33.3333333333%;
+    flex: 0 0 33.3333333333%;
+  }
+}
+
+.stripe-wp-col-lg-5 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-5 {
+    max-width: 41.6666666667%;
+    flex: 0 0 41.6666666667%;
+  }
+}
+
+.stripe-wp-col-lg-6 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+.stripe-wp-col-lg-7 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-7 {
+    max-width: 58.3333333333%;
+    flex: 0 0 58.3333333333%;
+  }
+}
+
+.stripe-wp-col-lg-8 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-8 {
+    max-width: 66.6666666667%;
+    flex: 0 0 66.6666666667%;
+  }
+}
+
+.stripe-wp-col-lg-9 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-9 {
+    max-width: 75%;
+    flex: 0 0 75%;
+  }
+}
+
+.stripe-wp-col-lg-10 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-10 {
+    max-width: 83.3333333333%;
+    flex: 0 0 83.3333333333%;
+  }
+}
+
+.stripe-wp-col-lg-11 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-11 {
+    max-width: 91.6666666667%;
+    flex: 0 0 91.6666666667%;
+  }
+}
+
+.stripe-wp-col-lg-12 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 992px) {
+  .stripe-wp-col-lg-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+.stripe-wp-col-xl-1 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-1 {
+    max-width: 8.3333333333%;
+    flex: 0 0 8.3333333333%;
+  }
+}
+
+.stripe-wp-col-xl-2 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-2 {
+    max-width: 16.6666666667%;
+    flex: 0 0 16.6666666667%;
+  }
+}
+
+.stripe-wp-col-xl-3 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+  }
+}
+
+.stripe-wp-col-xl-4 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-4 {
+    max-width: 33.3333333333%;
+    flex: 0 0 33.3333333333%;
+  }
+}
+
+.stripe-wp-col-xl-5 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-5 {
+    max-width: 41.6666666667%;
+    flex: 0 0 41.6666666667%;
+  }
+}
+
+.stripe-wp-col-xl-6 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+  }
+}
+
+.stripe-wp-col-xl-7 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-7 {
+    max-width: 58.3333333333%;
+    flex: 0 0 58.3333333333%;
+  }
+}
+
+.stripe-wp-col-xl-8 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-8 {
+    max-width: 66.6666666667%;
+    flex: 0 0 66.6666666667%;
+  }
+}
+
+.stripe-wp-col-xl-9 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-9 {
+    max-width: 75%;
+    flex: 0 0 75%;
+  }
+}
+
+.stripe-wp-col-xl-10 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-10 {
+    max-width: 83.3333333333%;
+    flex: 0 0 83.3333333333%;
+  }
+}
+
+.stripe-wp-col-xl-11 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-11 {
+    max-width: 91.6666666667%;
+    flex: 0 0 91.6666666667%;
+  }
+}
+
+.stripe-wp-col-xl-12 {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+@media (min-width: 1200px) {
+  .stripe-wp-col-xl-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.stripe-wp-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
+}
+@media (min-width: 1025px) {
+  .stripe-wp-container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .stripe-wp-container {
+    max-width: 90%;
+  }
+}
+@media (min-width: 480px) and (max-width: 768px) {
+  .stripe-wp-container {
+    max-width: 90%;
+  }
+}
+
+.stripe-wp-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -15px 0 -15px;
+}
+
+.stripe-wp-donate-page-main {
+  margin: 2rem 3rem 2rem 3rem;
+  font-size: 1.17rem;
+}
+.stripe-wp-donate-page-main form {
+  padding: 0.375rem;
+}
+.stripe-wp-donate-page-main h1 {
+  font-size: 4rem;
+}
+.stripe-wp-donate-page-main h4 {
+  margin: 0 0 2rem 0;
+}
+
+.stripe-wp-donate-page-header {
+  margin: 1rem 3rem 1rem 3rem;
+}
+
 .stripe-wp-d-none {
   display: none !important;
 }
@@ -24,6 +916,9 @@
   background-color: #000000;
   color: #ffffff;
 }
+.stripe-wp-btn.stripe-wp-btn-submit {
+  background-color: #ff0e44;
+}
 
 .stripe-wp-btn-control {
   border-color: #efefef;
@@ -31,10 +926,37 @@
 
 .stripe-wp-donate-amount-button {
   display: block;
+  width: 100%;
+}
+
+.stripe-wp-donate-amount-text {
+  display: block;
+  width: 100%;
 }
 
 .stripe-wp-navbar-brand img {
   max-width: 120px;
+}
+
+.stripe-wp-donate-page-title {
+  margin: 2rem 0 2rem 0;
+}
+
+.stripe-wp-error-text {
+  color: #ff2200;
+}
+
+#stripe-wp-donate-call-to-action {
+  padding-left: 30px;
+}
+
+#stripe-wp-donate-disclosure-text, #stripe-wp-donate-transaction-security {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+#stripe-wp-donate-additional-info {
+  margin: 2rem 0 0 0;
 }
 
 /*# sourceMappingURL=donate.css.map */
