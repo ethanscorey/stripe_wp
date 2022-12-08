@@ -1,4 +1,4 @@
-stripe-wp.zip
+*.zip
 .phpunit.result.cache
 stripe-wp/vendor/
 stripe-wp/bin/
