@@ -5,12 +5,13 @@
 <html <?php language_attributes(); ?>>
 <head>
   <meta charset="<?php bloginfo( 'charset' ); ?>">
+  <?php echo get_post_meta($post_id, 'stripe_wp_additional_styles', true); ?>
   <?php wp_head(); ?>
 </head>
   <body <?php body_class(); ?>>
     <header class='stripe-wp-donate-page-header'>
         <a class="stripe-wp-navbar-brand" href="/">
-            <img src="<?php echo get_post_meta(get_the_ID(), 'stripe_wp_site_logo', true); ?>">
+            <img src="<?php echo get_post_meta($post_id, 'stripe_wp_site_logo', true); ?>">
         </a>
     </header>
     <main role="main" class="stripe-wp-donate-page-main">

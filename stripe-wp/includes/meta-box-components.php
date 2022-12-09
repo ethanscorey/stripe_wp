@@ -9,6 +9,16 @@ function stripe_wp_site_logo( $post ) {
 }
 
 
+function stripe_wp_additional_styles( $post ) {
+    stripe_wp_meta_additional_styles(
+        $post->ID,
+        'stripe_wp_additional_styles',
+        'Additonal Styles',
+        'Paste any additional code you would like to include in the head tag for this page.',
+    );
+}
+
+
 function stripe_wp_donate_call_to_action( $post ) {
     $text= get_post_meta($post->ID, 'stripe_wp_donate_call_to_action' , true );
     $meta_box_id = 'stripe_wp_donate_call_to_action';
@@ -240,5 +250,14 @@ function stripe_wp_meta_file_upload($post_id, $field_name, $label, $description)
     <img height="100" id="<?php echo $field_name; ?>_preview" src="<?php echo $file_link; ?>">
     <input id="<?php echo $field_name; ?>_upload_button" type="button" value="Upload">
     <input id="make_header_default" name="make_header_default" type="checkbox">
+    <?php
+}
+
+
+function stripe_wp_meta_additional_styles($post_id, $field_name, $label, $description) {
+    ?>
+    <label for="<?php echo $field_name; ?>"><?php echo $label; ?></label>
+    <p class="description"><?php echo $description; ?></p>
+    <textarea id="<?php echo $field_name; ?>_input" name="<?php echo $field_name; ?>"><?php echo get_post_meta($post_id, $field_name, true); ?></textarea>
     <?php
 }

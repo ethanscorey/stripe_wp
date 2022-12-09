@@ -63,6 +63,7 @@ function stripe_wp_update_interval_amount_options($post_id, $interval, $default_
 
 function stripe_wp_donate_save_meta( $post_id ) {
     if (get_post_type($post_id) == 'stripe_wp_donate') {
+        stripe_wp_update_post_meta($post_id, 'stripe_wp_additional_styles');
         stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_call_to_action', 'wp_kses_post');
         stripe_wp_update_post_meta($post_id, 'stripe_wp_product_name', 'sanitize_text_field');
         $donate_intervals = array();

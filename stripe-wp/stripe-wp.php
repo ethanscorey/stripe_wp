@@ -35,26 +35,6 @@ function stripe_wp_template_include( $template ) {
 add_action( 'template_include', 'stripe_wp_template_include');
 
 
-add_action( 'pre_get_posts', 'stripe_wp_include_post_type_in_query' );
-function stripe_wp_include_post_type_in_query( $query ) {
-
-    // Only noop the main query
-    if ( ! $query->is_main_query() )
-        return;
-
-    // Only noop our very specific rewrite rule match
-    if ( 2 != count( $query->query )
-    || ! isset( $query->query['page'] ) )
-         return;
-
-     // Include my post type in the query
-    if ( ! empty( $query->query['name'] ) )
-        $post_types = $query->get('post_type', array());
-        $post_types[] = 'stripe_wp_donate';
-        $query->set( 'post_type', $post_types );
-}
-
-
 function stripe_wp_donate_page() {
     register_post_type(
         'stripe_wp_donate',
@@ -63,7 +43,7 @@ function stripe_wp_donate_page() {
                 'name' => 'Donate Pages',
                 'singular_name' => 'Donate Page',
              ),
-            'rewrite' => array('slug' => '/'),
+            'rewrite' => true,
             'public' => true,
             'has_archive' => false,
             'show_in_rest' => true,
@@ -72,7 +52,6 @@ function stripe_wp_donate_page() {
         )
     );
 }
-
 add_action('init', 'stripe_wp_donate_page');
 
 
@@ -85,25 +64,23 @@ function stripe_wp_error_page() {
         'post_author' => 1,
         'post_type' => 'page',
     );
-    wp_insert_post( $error_page );
+    $error_page_id = wp_insert_post( $error_page );
+    update_option( 'stripe_wp_error_page_id', $error_page_id );
 }
-
-register_activation_hook(__FILE__, 'stripe_wp_error_page');
 
 
 function stripe_wp_thank_you_page() {
     $plugin_path = plugin_dir_path( __FILE__ ) . 'templates/';
-    $thank_you_post = array(
+    $thank_you_page = array(
         'post_title' => wp_strip_all_tags('Thank You'),
         'post_name' => wp_strip_all_tags('stripe-wp-donate-thank-you'),
         'post_status' => 'publish',
         'post_author' => 1,
         'post_type' => 'page',
     );
-    wp_insert_post( $thank_you_post );
+    $thank_you_page_id = wp_insert_post( $thank_you_page );
+    update_option( 'stripe_wp_thank_you_page_id', $thank_you_page_id );
 }
-
-register_activation_hook(__FILE__, 'stripe_wp_thank_you_page');
 
 
 function stripe_wp_manage_donation_page() {
@@ -115,10 +92,40 @@ function stripe_wp_manage_donation_page() {
         'post_author' => 1,
         'post_type' => 'page',
     );
-    wp_insert_post( $manage_donation_page );
+    $manage_donation_page_id = wp_insert_post( $manage_donation_page );
+    update_option( 'stripe_wp_manage_donation_page_id', $manage_donation_page_id );
+
 }
 
-register_activation_hook(__FILE__, 'stripe_wp_manage_donation_page');
+register_activation_hook(__FILE__, 'stripe_wp_activate');
+
+function stripe_wp_activate() {
+    stripe_wp_manage_donation_page();
+    stripe_wp_thank_you_page();
+    stripe_wp_error_page();
+    stripe_wp_donate_page();
+    flush_rewrite_rules();
+}
+
+register_deactivation_hook(__FILE__, 'stripe_wp_deactivate');
+
+
+function stripe_wp_deactivate() {
+    $error_page_id = get_option( 'stripe_wp_error_page_id' );
+    $thank_you_page_id = get_option( 'stripe_wp_thank_you_page_id' );
+    $manage_donation_page_id = get_option( 'stripe_wp_manage_donation_page_id' );
+    if ($error_page_id) {
+        wp_delete_post($error_page_id, true);
+    }
+    if ($thank_you_page_id) {
+        wp_delete_post($thank_you_page_id);
+    }
+    if ($manage_donation_page_id) {
+        wp_delete_post($manage_donation_page_id);
+    }
+    unregister_post_type('stripe_wp_donate');
+    flush_rewrite_rules();
+}
 
 
 function stripe_wp_exclude_pages_from_page_list($pages) {
@@ -162,7 +169,12 @@ function stripe_wp_add_meta_boxes( $post ) {
     add_meta_box(
         'stripe_wp_donate_additional_info',
         'Additional Info',
-        'stripe_wp_donate_additional_info',
+        'stripe_wp_donate_additional_info'
+    );
+    add_meta_box(
+        'stripe_wp_additional_styles',
+        'Additional Styles',
+        'stripe_wp_additional_styles'
     );
 }
 
