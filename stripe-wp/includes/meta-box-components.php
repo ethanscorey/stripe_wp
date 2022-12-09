@@ -20,11 +20,11 @@ function stripe_wp_donate_call_to_action( $post ) {
 function stripe_wp_donate_options( $post ) {
     $stripe_product_name = get_post_meta($post->ID, 'stripe_wp_product_name', true);
     $donate_intervals = get_post_meta($post->ID, 'stripe_wp_donate_intervals', true);
-    $allow_interval_month = $donate_intervals['month'];
+    $allow_interval_month = $donate_intervals['month'] ?? true;
     $month_checked = $allow_interval_month ? 'checked':'';
-    $allow_interval_year = $donate_intervals['year'];
+    $allow_interval_year = $donate_intervals['year'] ?? true;
     $year_checked = $allow_interval_year ? 'checked':'';
-    $allow_interval_onetime = $donate_intervals['one-time'];
+    $allow_interval_onetime = $donate_intervals['one-time'] ?? true;
     $onetime_checked = $allow_interval_onetime ? 'checked':'';
     $default_interval = get_post_meta($post->ID, 'stripe_wp_default_interval', true);
     $default_display_amount_options = 5;

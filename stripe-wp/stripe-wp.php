@@ -38,19 +38,21 @@ add_action( 'template_include', 'stripe_wp_template_include');
 add_action( 'pre_get_posts', 'stripe_wp_include_post_type_in_query' );
 function stripe_wp_include_post_type_in_query( $query ) {
 
-     // Only noop the main query
-     if ( ! $query->is_main_query() )
+    // Only noop the main query
+    if ( ! $query->is_main_query() )
+        return;
+
+    // Only noop our very specific rewrite rule match
+    if ( 2 != count( $query->query )
+    || ! isset( $query->query['page'] ) )
          return;
 
-     // Only noop our very specific rewrite rule match
-     if ( 2 != count( $query->query )
-     || ! isset( $query->query['page'] ) )
-          return;
-
-      // Include my post type in the query
-     if ( ! empty( $query->query['name'] ) )
-          $query->set( 'post_type', array( 'post', 'page', 'stripe_wp_donate' ) );
- }
+     // Include my post type in the query
+    if ( ! empty( $query->query['name'] ) )
+        $post_types = $query->get('post_type', array());
+        $post_types[] = 'stripe_wp_donate';
+        $query->set( 'post_type', $post_types );
+}
 
 
 function stripe_wp_donate_page() {
