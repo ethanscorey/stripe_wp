@@ -74,6 +74,9 @@ function stripe_wp_donate_save_meta( $post_id ) {
         stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_month_options_count', 'sanitize_text_field', '0');
         stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_year_options_count', 'sanitize_text_field', '0');
         stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_one-time_options_count', 'sanitize_text_field', '0');
+        stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_month_options_display_name', 'sanitize_text_field', 'Month');
+        stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_year_options_display_name', 'sanitize_text_field', 'Year');
+        stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_one-time_options_display_name', 'sanitize_text_field', 'One-Time');
         stripe_wp_update_post_meta($post_id, 'stripe_wp_donate_month_options_is_default', 'sanitize_text_field', "0");
         $product_id = stripe_wp_set_donate_page_product_id($post_id);
         $default_interval = get_post_meta($post_id, 'stripe_wp_default_interval', true);

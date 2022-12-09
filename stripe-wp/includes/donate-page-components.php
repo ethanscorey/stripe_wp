@@ -10,7 +10,7 @@ function stripe_wp_donate_frequency_options($post_id) {
                 $active = ($interval == $default_interval) ? 'active':'';
                 ?>
                   <label class="stripe-wp-btn stripe-wp-btn-control stripe-wp-donate-frequency-button <?php echo $active; ?>">
-                  <?php echo ucwords($interval); ?>
+                  <?php echo get_post_meta($post_id, "stripe_wp_donate_{$interval}_options_display_name", true); ?>
                   <input id="<?php echo $interval; ?>" name="interval" class="stripe-wp-donate-frequency-option" type="radio" <?php echo $checked; ?>>
                 </label>
                 <?php

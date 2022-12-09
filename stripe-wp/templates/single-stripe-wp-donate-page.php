@@ -16,7 +16,7 @@
     <main role="main" class="stripe-wp-donate-page-main">
       <div class="stripe-wp-container">
         <div class="stripe-wp-donate-page-title">
-          <h1>Donate</h1>
+        <h1><?php the_title(); ?></h1>
         </div>
         <div class="stripe-wp-row">
           <div class="stripe-wp-col-md-6">
@@ -45,7 +45,7 @@
             </form>
           </div>
           <div class="stripe-wp-col-md-6" id="stripe-wp-donate-call-to-action">
-            <?php echo get_post_meta($post_id, 'stripe_wp_donate_call_to_action', true ); ?>
+            <?php echo wpautop( get_post_meta($post_id, 'stripe_wp_donate_call_to_action', true ) ); ?>
           </div>
         </div>
         <div class="stripe-wp-row">
@@ -60,7 +60,7 @@
         </div>
         <div class="stripe-wp-row">
           <div class="stripe-wp-col-md-12" id="stripe-wp-donate-additional-info">
-            <?php echo get_post_meta($post_id, 'stripe_wp_donate_additional_info', true); ?>
+            <?php echo wpautop( get_post_meta($post_id, 'stripe_wp_donate_additional_info', true) ); ?>
           </div>
         </div>
       </div>

@@ -81,7 +81,8 @@ function stripe_wp_donate_options( $post ) {
         'stripe_wp_donate_month_options',
         $month_display_amount_options ? $month_display_amount_options:$default_display_amount_options,
         'Donation Amounts (Monthly)',
-        'Set the monthly donation amount options.'
+        'Set the monthly donation amount options.',
+        'Monthly'
     );
     stripe_wp_meta_amount_option_table(
         $post->ID,
@@ -89,7 +90,8 @@ function stripe_wp_donate_options( $post ) {
         'stripe_wp_donate_year_options',
         $year_display_amount_options ? $year_display_amount_options:$default_display_amount_options,
         'Donation Amounts (Yearly)',
-        'Set the yearly donation amount options.'
+        'Set the yearly donation amount options.',
+        'Yearly'
     );
     stripe_wp_meta_amount_option_table(
         $post->ID,
@@ -97,7 +99,8 @@ function stripe_wp_donate_options( $post ) {
         'stripe_wp_donate_one-time_options',
         $onetime_display_amount_options ? $onetime_display_amount_options:$default_display_amount_options,
         'Donation Amounts (One-Time)',
-        'Set the one-time donation amount options.'
+        'Set the one-time donation amount options.',
+        'One-Time'
     );
     stripe_wp_meta_checkbox_list(
         [
@@ -188,14 +191,18 @@ function stripe_wp_meta_option_select($name, $options, $label, $description) {
 }
 
 
-function stripe_wp_meta_amount_option_table($post_id, $allowed, $name, $num_options, $label, $description) {
+function stripe_wp_meta_amount_option_table($post_id, $allowed, $name, $num_options, $label, $description, $default_display_name) {
     $display = $allowed ? '':'style="display: none;"';
+    $display_name = get_post_meta($post_id, "{$name}_display_name", true);
+    $display_name = !empty($display_name) ? $display_name:$default_display_name;
     ?>
     <div class="stripe-wp-donate-meta-field" <?php echo $display; ?>>
         <label><?php echo $label; ?></label>
         <p class="description"><?php echo $description; ?></p>
-        <label for="<?php echo "{$name}_count" ?>">Number of options</label>
-        <input type="number" name="<?php echo "{$name}_count"; ?>" id="<?php echo "{$name}_count"; ?>" value="<?php echo $num_options; ?>" step="1">
+        <p><label for="<?php echo "{$name}_count"; ?>">Number of options</label>
+        <input type="number" name="<?php echo "{$name}_count"; ?>" id="<?php echo "{$name}_count"; ?>" value="<?php echo $num_options; ?>" step="1"></p>
+        <p><label for="<?php echo "{$name}_display_name"; ?>">Interval display name</label>
+        <input type="text" name="<?php echo "{$name}_display_name"; ?>" id="<?php echo "{$name}_display_name"; ?>" value="<?php echo $display_name; ?>"></p>
         <table id="<?php echo $name; ?>">
             <thead>
                 <th><label>Amount</label></th>
