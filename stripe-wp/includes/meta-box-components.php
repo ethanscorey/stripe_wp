@@ -63,25 +63,32 @@ function stripe_wp_donate_options( $post ) {
         'Donation Intervals',
         'Choose which donation intervals to allow'
     );
+    $interval_options = array();
+    if ($allow_interval_month) {
+        $interval_options[] = array(
+            'value' => 'month',
+            'selected' => ($default_interval == 'month'),
+            'label' => 'Month',
+        );
+    }
+    if ($allow_interval_year) {
+        $interval_options[] = array(
+            'value' => 'year',
+            'selected' => ($default_interval == 'year'),
+            'label' => 'Year',
+        );
+    }
+    if ($allow_interval_onetime) {
+        $interval_options[] = array(
+            'value' => 'one-time',
+            'selected' => ($default_interval == 'one-time'),
+            'label' => 'One-Time',
+        );
+    }
+
     stripe_wp_meta_option_select(
         'stripe_wp_default_interval',
-        [
-            array(
-                'value' => 'month',
-                'selected' => ($default_interval == 'month'),
-                'label' => 'Month',
-            ),
-            array(
-                'value' => 'year',
-                'selected' => ($default_interval == 'year'),
-                'label' => 'Year',
-            ),
-            array(
-                'value' => 'one-time',
-                'selected' => ($default_interval == 'one-time'),
-                'label' => 'One-Time',
-            ),
-        ],
+        $interval_options,
         'Default Interval',
         'Select the default interval'
     );
@@ -231,7 +238,7 @@ function stripe_wp_meta_amount_option_table($post_id, $allowed, $name, $num_opti
                         $amount = $amount_options[$i]['amount'];
                         $checked = $amount_options[$i]['default'] ? 'checked':'';
                     }
-                    echo "<tr><td><input name='{$name}_$i' type='number' min='0.50' max='999999.99' step='0.5' value='$amount'></td><td><input name='{$name}_is_default' value='$i' type='radio' $checked></td></tr>";
+                    echo "<tr><td><input name='{$name}_$i' type='number' min='0.50' max='999999.99' step='0.01' value='$amount'></td><td><input name='{$name}_is_default' value='$i' type='radio' $checked></td></tr>";
                 }
             ?>
             </tbody>
