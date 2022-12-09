@@ -1,11 +1,10 @@
 <?php
 /**
  * Plugin Name: Stripe/WordPress integration
- * Version: 0.6.0
+ * Version: 0.7.0
  * Description: Backend support for integrating Stripe with WordPress.
- * Author: Ethan Corey
- * License: GPL2 or later
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Author: Ethan Corey for The Political Report Inc.,
+ * License: MIT License
  */
 
 define('STRIPE_WP_ASSET_URL', plugins_url('assets/', __FILE__));

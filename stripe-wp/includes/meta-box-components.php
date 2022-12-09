@@ -250,13 +250,14 @@ function stripe_wp_meta_amount_option_table($post_id, $allowed, $name, $num_opti
 
 function stripe_wp_meta_file_upload($post_id, $field_name, $label, $description) {
     $file_link = get_post_meta($post_id, $field_name, true);
+    $checked = get_post_meta($post_id, 'stripe_wp_default_logo', true) ? 'checked':'';
     ?>
     <label for="<?php echo $field_name; ?>"><?php echo $label; ?></label>
     <p class="description"><?php echo $description; ?></p>
     <input id="<?php echo $field_name; ?>_input" name="<?php echo $field_name; ?>" type="hidden" value="<?php echo $file_link; ?>">
     <img height="100" id="<?php echo $field_name; ?>_preview" src="<?php echo $file_link; ?>">
     <input id="<?php echo $field_name; ?>_upload_button" type="button" value="Upload">
-    <input id="make_header_default" name="make_header_default" type="checkbox">
+    <input id="stripe_wp_make_header_default" name="stripe_wp_make_header_default" type="checkbox" <?php echo $checked; ?>>
     <?php
 }
 

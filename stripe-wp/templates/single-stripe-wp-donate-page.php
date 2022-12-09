@@ -1,19 +1,7 @@
 <?php /* Template Name: Stripe-WP Donate Page */
   $post_id = get_the_ID();
+  include(dirname(__FILE__) . '/stripe-wp-header.php');
 ?>
-<!doctype html>
-<html <?php language_attributes(); ?>>
-<head>
-  <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <?php echo get_post_meta($post_id, 'stripe_wp_additional_styles', true); ?>
-  <?php wp_head(); ?>
-</head>
-  <body <?php body_class(); ?>>
-    <header class='stripe-wp-donate-page-header'>
-        <a class="stripe-wp-navbar-brand" href="/">
-            <img src="<?php echo get_post_meta($post_id, 'stripe_wp_site_logo', true); ?>">
-        </a>
-    </header>
     <main role="main" class="stripe-wp-donate-page-main">
       <div class="stripe-wp-container">
         <div class="stripe-wp-donate-page-title">
