@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: Stripe/WordPress integration
- * Version: 0.7.0
+ * Version: 0.8.0
  * Description: Backend support for integrating Stripe with WordPress.
  * Author: Ethan Corey for The Political Report Inc.,
  * License: MIT License
