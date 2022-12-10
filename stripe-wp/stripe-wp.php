@@ -42,7 +42,7 @@ function stripe_wp_donate_page() {
                 'name' => 'Donate Pages',
                 'singular_name' => 'Donate Page',
              ),
-            'rewrite' => true,
+            'rewrite' => array('slug' => 'donate-page'),
             'public' => true,
             'has_archive' => false,
             'show_in_rest' => true,

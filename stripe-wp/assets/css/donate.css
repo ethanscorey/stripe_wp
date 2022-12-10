@@ -872,6 +872,18 @@
   margin: 0 -15px 0 -15px;
 }
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number].stripe-wp-donate-amount-text {
+  -moz-appearance: textfield;
+}
+
 .stripe-wp-donate-page-main {
   margin: 2rem 3rem 2rem 3rem;
   font-size: 1.17rem;
@@ -925,12 +937,13 @@
   margin: 0.25rem 0;
 }
 
-.stripe-wp-donate-amount-button {
-  display: block;
-  width: 100%;
+.stripe-wp-donate-frequency-button, .stripe-wp-donate-amount-button, .stripe-wp-donate-amount-text {
+  line-height: 40px;
+  height: 40px;
+  font-size: 1em;
 }
 
-.stripe-wp-donate-amount-text {
+.stripe-wp-donate-amount-button, .stripe-wp-donate-amount-text {
   display: block;
   width: 100%;
 }
